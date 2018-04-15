@@ -2,18 +2,17 @@
 <div class="row">
 <% tvshows.forEach(tvshow =>{ %>
   <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
+    <div class="card  amber darken-2">
       <div class="card-content white-text">
         <span class="card-title">  <%= tvshow.name %></span>
         <p>Seasons: <%= tvshow.season %></p>
         <p>Popularity: <%= tvshow.popularity %></p>
       </div>
       <div class="card-action">
-        <a href="/tvshows/<%= tvshow._id %>" class="orange-text">View Tv Show</a>
-        <a href="/tvshows/<%= tvshow._id %>/edit" class="orange-text">Modify details</a>
+        <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Tv Show</a>
+        <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Modify details</a>
       </div>
     </div>
   </div>
-
 <% }) %>
   </div>

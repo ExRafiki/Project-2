@@ -9,6 +9,10 @@ const routes                = require('./config/routes');
 const expressLayouts        = require('express-ejs-layouts');
 const methodOverride        = require('method-override');
 const { port, databaseURI } = require('./config/environment');
+const User                  = require('./models/user');
+const flash                 = require('express-flash');
+const session               = require('express-session');
+const errorHandler          = require('./lib/errorHandler');
 
 //------Connecting db and promise-----------------------------------------
 mongoose.Promise            = require('bluebird');
@@ -19,7 +23,6 @@ app.set('view engine', 'ejs');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(express.static(`${__dirname}/public`));
 app.use(expressLayouts);
 app.use(methodOverride(req =>{
@@ -29,6 +32,39 @@ app.use(methodOverride(req =>{
     return method;
   }
 }));
+//------SESSIONS AND USER ID CHECK----------------------------------------------
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'well aint this some shit',
+  resave: false,
+  saveUnitialized: false
+}));
+app.use(flash());
+app.use(errorHandler);
+
+app.use((req, res, next) =>{
+  if(!req.session.userId) return next();
+
+  User
+    .findById(req.session.userId)
+    .then((user) =>{
+      req.session.userId = user._id;
+      res.locals.user = user;
+      req.currentUser = user;
+      res.locals.isLoggedIn = true;
+      next();
+    });
+
+
+});
+//-------500 ERROR--------------------------------------------------------------
+app. use((err, req, res, next) =>{
+  err.status = err.status || 500  ;
+  err.message = err.message || 'Interval Server Error';
+  res.status(err.status);
+  res.locals.err = err;
+
+  return res.render(`statics/${err.status}`);
+});
+//------Port-Listen and use route-----------------------------------------------
 app.use(routes);
-//------Port-Listen-------------------------------------------------------------
 app.listen(port, () => console.log(`Express started on port: ${port}`));

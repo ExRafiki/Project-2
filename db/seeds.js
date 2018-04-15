@@ -11,37 +11,50 @@ Tvshow.collection.drop();
 Poster.collection.drop();
 //------------Creation of poster then the tvshow--------------------------------
 Poster.create([{
-  url: 'https://dgeiu3fz282x5.cloudfront.net/g/l/lgPP32842.jpg',
+  url: 'https://occ-0-999-1001.1.nflxso.net/art/3ffe8/db82d304bffd998e912326eef880843e0a43ffe8.jpg',
   comments: [
-    'Awesome show',
+    'Size test',
     'Great stuff'
   ]
 },{
-  url: 'https://media-cache.cinematerial.com/p/500x/ovn9sdn4/the-big-bang-theory-movie-poster.jpg',
+  url: 'https://upload.wikimedia.org/wikipedia/en/4/4f/Marco_Polo_2014_title_card.jpg',
   comments: [
-    'Cage is the best',
-    'Great stuff'
+    'Size test',
+    'Nice'
   ]
 },{
-  url: 'https://cdn.europosters.eu/image/750/posters/big-bang-theory-line-up-i13387.jpg',
+  url: 'https://ia.media-imdb.com/images/M/MV5BMjM5NTk1MTc4OF5BMl5BanBnXkFtZTgwNTE5ODIxOTE@._V1_UX182_CR0,0,182,268_AL_.jpg',
   comments: [
-    'Lets go',
-    'Great stuff'
+    'Size test',
+    'Cool'
   ]
 }])
-
+//------------------------------------------------------------------------------
   .then((posters) => {
     return Tvshow.create({
-      name: 'The Big Bang Theory',
-      genre: 'Comedy',
-      startdate: '2003',
+      name: 'Marco Polo',
+      genre: 'Adventure',
+      startdate: '2012',
       enddate: 'n/a',
       popularity: 'High',
-      season: 15,
-      platform: 'traditional / internet',
+      season: 1,
+      platform: 'internet',
+      image: '',
       posters: posters.map(poster => poster._id)
     });
   })
 
   .catch(err => console.log(err))
   .finally(()=> mongoose.connection.close());
+
+// Tvshow.create({
+//   name: 'The Big Bang Theory',
+//   genre: 'Comedy',
+//   startdate: '2003',
+//   enddate: 'n/a',
+//   popularity: 'High',
+//   season: 15,
+//   platform: 'traditional / internet',
+//   image: 'https://cdn.europosters.eu/image/750/posters/big-bang-theory-line-up-i13387.jpg',
+//   posters: posters.map(poster => poster._id)
+// })
