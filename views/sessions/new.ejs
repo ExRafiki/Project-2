@@ -1,12 +1,14 @@
 <div class="row">
-  <% if(messages.danger){ %>
+  <% if(messages){ %>
+    <% for (type in messages) { %>
     <div class="col s12 l12">
-      <div class="card red lighten-3">
-        <div class="card-content red-text">
-          <span class="card-title"><%= messages.danger %></span>
+      <div class="card blue lighten-3">
+        <div class="card-content black-text">
+          <span class="card-title"><%= messages[type] %></span>
         </div>
       </div>
     </div>
+  <% } %>
   <% } %>
   <h2>Sign in</h2>
   <form class="col l12" action="/signin" method="post">

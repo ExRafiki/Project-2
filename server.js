@@ -54,10 +54,12 @@ app.use((req, res, next) =>{
       next();
     });
 
-
 });
+
+app.use(routes);
+
 //-------500 ERROR--------------------------------------------------------------
-app. use((err, req, res, next) =>{
+app.use((err, req, res, next) => {
   err.status = err.status || 500  ;
   err.message = err.message || 'Interval Server Error';
   res.status(err.status);
@@ -66,5 +68,4 @@ app. use((err, req, res, next) =>{
   return res.render(`statics/${err.status}`);
 });
 //------Port-Listen and use route-----------------------------------------------
-app.use(routes);
 app.listen(port, () => console.log(`Express started on port: ${port}`));

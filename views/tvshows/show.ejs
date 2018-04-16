@@ -1,6 +1,7 @@
 <div class="row">
   <h3 class="col l10"><%= tvshow.name %></h3>
     <div class="col 12">
+      <img src="<%= tvshow.image %>">
       <form action="/tvshows/<%= tvshow.id %>" method="post">
         <input type="hidden" name="_method" value="DELETE">
       <button class="btn red">Delete Show</button>

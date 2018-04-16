@@ -2,11 +2,12 @@ const router        = require('express').Router();
 const tvshow        = require('../controllers/tvshows');
 const registrations = require('../controllers/registrations');
 const sessions      = require('../controllers/sessions');
+const user          = require('../controllers/users');
 // //------------------------------------------------------------------------------
 function secureRoute(req, res, next){
   if(!req.session.userId){
     return req.session.regenerate(() =>{
-      req.flash('danger', 'You must be logged in');
+      req.flash('danger', 'You must be logged in to add TV Shows');
       res.redirect('/');
     });
   }
@@ -29,6 +30,9 @@ router.route('/tvshows/:id')
 
 router.route('/tvshows/:id/edit')
   .get(tvshow.edit);
+
+router.route('/users/profile')
+  .get(user.delete);
 //--------ROUTES TO LOGIN-------------------------------------------------------
 router.route('/signin')
   .get(sessions.new)
@@ -44,7 +48,7 @@ router.route('/logout')
 router.route('/*').get((req, res) =>{
   req.flash('danger', 'THE URL REQUEST AINT HERE');
   res.render('statics/404.ejs');
-  res.redirect('/');
+  // res.redirect('/');
 });
 //------------------------------------------------------------------------------
 module.exports = router;

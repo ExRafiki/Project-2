@@ -4,16 +4,18 @@ function newReg(req, res) {
   res.render('registrations/new');
 }
 //------------------------------------------------------------------------------
-function createReg(req, res){
+function createReg(req, res, next){
   User
     .create(req.body)
     .then(() =>{
-      res.redirect('/');
+      req.flash('info', 'Your account has been create. Please login');
+      res.redirect('/signin');
     })
     .catch((err)=> {
       if(err.name === 'ValidationError'){
-        return res.status(400).render('registrations/new', {message: err.toString()});
+        return res.badRequest('registrations/new', err);
       }
+      next(err);
     });
 }
 //------------------------------------------------------------------------------

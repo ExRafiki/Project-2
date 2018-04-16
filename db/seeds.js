@@ -34,12 +34,11 @@ Poster.create([{
     return Tvshow.create({
       name: 'Marco Polo',
       genre: 'Adventure',
-      startdate: '2012',
-      enddate: 'n/a',
+      year: new Date(2015,12,5),
       popularity: 'High',
       season: 1,
       platform: 'internet',
-      image: '',
+      image: 'http://soup.gua-le-ni.com/site/templates/images/somethinglogo.png',
       posters: posters.map(poster => poster._id)
     });
   })
