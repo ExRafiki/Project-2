@@ -1,34 +1,38 @@
-<div class="row">
-  <h3 class="col l10"><%= tvshow.name %></h3>
-    <div class="col 12">
-      <img src="<%= tvshow.image %>">
-      <form action="/tvshows/<%= tvshow.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-      <button class="btn red">Delete Show</button>
-    </form>
-  </div>
-</div>
-<div class="row">
-<% tvshow.posters.forEach(poster => { %>
-    <div class="col s12 m4">
-    <div class="card">
-      <div class="card-image">
-        <img src="<%= poster.url %>">
-      </div>
-        <div class="card-content">
-          <ul>
-            <% poster.comments.forEach(comment => { %>
-              <li><%= comment %></li>
-            <% }) %>
-          </ul>
-      </div>
-      <div class="card-action">
-        <form method ="POST"action ="/posters/<%= poster._id %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <button class="red btn">Deletion</button>
-        </form>
-      </div>
+<div class='center-align'>
+  <div class="row">
+    <h3 class="col l10"><%= tvshow.name %></h3>
+      <div class="col 12">
+        <img src="<%= tvshow.image %>">
+        <form action="/tvshows/<%= tvshow.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+        <button class="btn red">Delete Show</button>
+      </form>
     </div>
   </div>
-<% }) %>
+  <div class='row'>
+  <div class="card-image">
+  <% tvshow.posters.forEach(poster => { %>
+      <div class="col s16 m16">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= poster.url %>">
+        </div>
+          <div class="card-content">
+            <ul>
+              <% poster.comments.forEach(comment => { %>
+                <li><%= comment %></li>
+              <% }) %>
+            </ul>
+        </div>
+        <div class="card-action">
+          <form method ="POST"action ="/posters/<%= poster._id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="red btn">Deletion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+</div>
 </div>

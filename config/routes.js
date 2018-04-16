@@ -32,7 +32,8 @@ router.route('/tvshows/:id/edit')
   .get(tvshow.edit);
 
 router.route('/users/profile')
-  .get(user.delete);
+  .get(user.create);
+// .get(user.delete);
 //--------ROUTES TO LOGIN-------------------------------------------------------
 router.route('/signin')
   .get(sessions.new)

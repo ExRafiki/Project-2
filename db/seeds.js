@@ -5,45 +5,45 @@ const { databaseURI } = require('../config/environment');
 mongoose.connect(databaseURI);
 //------------Require the models------------------------------------------------
 const Tvshow          = require('../models/show');
-const Poster          = require('../models/poster');
 const User            = require('../models/user');
 //------------Drop previous seeds-----------------------------------------------
 Tvshow.collection.drop();
-Poster.collection.drop();
-User.collection.drop(); 
-//------------Creation of poster then the tvshow--------------------------------
-Poster.create([{
-  url: 'https://occ-0-999-1001.1.nflxso.net/art/3ffe8/db82d304bffd998e912326eef880843e0a43ffe8.jpg',
-  comments: [
-    'Size test',
-    'Great stuff'
-  ]
+User.collection.drop();
+//------------Creation tvshow--------------------------------
+Tvshow.create({
+  name: 'Marco Polo',
+  genre: 'Adventure',
+  year: new Date(2015,12,5),
+  popularity: 'High',
+  season: 1,
+  platform: 'internet',
+  image: 'https://static2.tribute.ca/poster/540x800/marco-polo-netflix-5823.jpg'
 },{
-  url: 'https://upload.wikimedia.org/wikipedia/en/4/4f/Marco_Polo_2014_title_card.jpg',
-  comments: [
-    'Size test',
-    'Nice'
-  ]
+  name: 'Spartacus',
+  genre: 'Horror',
+  year: new Date(2015,12,5),
+  popularity: 'High',
+  season: 7,
+  platform: 'internet',
+  image: 'https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/e6/e68879a4839773d105f0689875dace83_500x735.jpg'
 },{
-  url: 'https://ia.media-imdb.com/images/M/MV5BMjM5NTk1MTc4OF5BMl5BanBnXkFtZTgwNTE5ODIxOTE@._V1_UX182_CR0,0,182,268_AL_.jpg',
-  comments: [
-    'Size test',
-    'Cool'
-  ]
-}])
-//------------------------------------------------------------------------------
-  .then((posters) => {
-    return Tvshow.create({
-      name: 'Marco Polo',
-      genre: 'Adventure',
-      year: new Date(2015,12,5),
-      popularity: 'High',
-      season: 1,
-      platform: 'internet',
-      image: 'undefined',
-      posters: posters.map(poster => poster._id)
-    });
-  })
+  name: 'Breaking Bad',
+  genre: 'Action',
+  year: new Date(2015,12,5),
+  popularity: 'High',
+  season: 3,
+  platform: 'internet',
+  image: 'https://cdn.europosters.eu/image/750/posters/breaking-bad-i-am-the-one-who-knocks-i15742.jpg'
+},{
+  name: 'Have I Got News For You',
+  genre: 'Comedy',
+  year: new Date(2015,12,5),
+  popularity: 'High',
+  season: 3,
+  platform: 'internet',
+  image: 'https://ia.media-imdb.com/images/M/MV5BYTY0NDcwNDAtODQ0Ni00MmQzLTgxZGItYjM0ZjU1OWI3ZjNlXkEyXkFqcGdeQXVyMTgyMzEyNDY@._V1_UY268_CR5,0,182,268_AL_.jpg'
+
+})
 
   .catch(err => console.log(err))
   .finally(()=> mongoose.connection.close());

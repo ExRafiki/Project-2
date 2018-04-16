@@ -9,7 +9,12 @@ function userDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
   // });
 }
+
+function userPop(req, res){
+  res.render('users/profile');
+}
 //------------------------------------------------------------------------------
 module.exports = {
-  delete: userDelete
+  delete: userDelete,
+  create: userPop
 };
