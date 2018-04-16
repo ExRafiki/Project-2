@@ -9,7 +9,8 @@ const showSchema = new mongoose.Schema({
   season: { type: Number},
   platform: { type: String},
   image: { type: String, required: true },
-  posters: [{type: mongoose.Schema.ObjectId, ref: 'Poster'}]
+  posters: [{type: mongoose.Schema.ObjectId, ref: 'Poster'}],
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 //------------------------------------------------------------------------------
 module.exports = mongoose.model('Show', showSchema);

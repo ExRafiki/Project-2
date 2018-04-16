@@ -3,6 +3,7 @@ const Tvshow = require('../models/show');
 function tvshowsIndex(req, res){
   Tvshow
     .find()
+    .populate('user')
     .exec()
     .then(tvshows => {
       res.render('tvshows/index', {tvshows});
@@ -32,7 +33,7 @@ function tvshowsEdit(req,res){
       res.render('tvshows/edit', {tvshow});
     });
 }
-
+//------------------------------------------------------------------------------
 function tvshowsDelete(req, res){
   Tvshow
     .findById(req.params.id)
@@ -42,6 +43,8 @@ function tvshowsDelete(req, res){
 }
 //------------------------------------------------------------------------------
 function tvshowsCreate(req, res){
+  req.body.user = req.currentUser;
+
   Tvshow
     .create(req.body)
     .then(() => res.redirect('/tvshows'));

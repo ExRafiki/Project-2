@@ -6,9 +6,11 @@ mongoose.connect(databaseURI);
 //------------Require the models------------------------------------------------
 const Tvshow          = require('../models/show');
 const Poster          = require('../models/poster');
+const User            = require('../models/user');
 //------------Drop previous seeds-----------------------------------------------
 Tvshow.collection.drop();
 Poster.collection.drop();
+User.collection.drop(); 
 //------------Creation of poster then the tvshow--------------------------------
 Poster.create([{
   url: 'https://occ-0-999-1001.1.nflxso.net/art/3ffe8/db82d304bffd998e912326eef880843e0a43ffe8.jpg',
@@ -38,22 +40,10 @@ Poster.create([{
       popularity: 'High',
       season: 1,
       platform: 'internet',
-      image: 'http://soup.gua-le-ni.com/site/templates/images/somethinglogo.png',
+      image: 'undefined',
       posters: posters.map(poster => poster._id)
     });
   })
 
   .catch(err => console.log(err))
   .finally(()=> mongoose.connection.close());
-
-// Tvshow.create({
-//   name: 'The Big Bang Theory',
-//   genre: 'Comedy',
-//   startdate: '2003',
-//   enddate: 'n/a',
-//   popularity: 'High',
-//   season: 15,
-//   platform: 'traditional / internet',
-//   image: 'https://cdn.europosters.eu/image/750/posters/big-bang-theory-line-up-i13387.jpg',
-//   posters: posters.map(poster => poster._id)
-// })

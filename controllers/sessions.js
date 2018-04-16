@@ -11,9 +11,7 @@ function createSession(req, res) {
       if(!user || !user.validPassword(req.body.password)){
         req.flash('danger', 'Something you typed was wrong  ');
         return res.status(401).render('sessions/new');
-        // return res.redirect('/signin');
       }
-
       req.session.userId = user.id;
       res.redirect('/');
     });

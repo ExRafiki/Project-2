@@ -48,7 +48,6 @@ router.route('/logout')
 router.route('/*').get((req, res) =>{
   req.flash('danger', 'THE URL REQUEST AINT HERE');
   res.render('statics/404.ejs');
-  // res.redirect('/');
 });
 //------------------------------------------------------------------------------
 module.exports = router;

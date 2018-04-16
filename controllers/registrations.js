@@ -8,7 +8,7 @@ function createReg(req, res, next){
   User
     .create(req.body)
     .then(() =>{
-      req.flash('info', 'Your account has been create. Please login');
+      req.flash('info', 'Your account has been created. Please login');
       res.redirect('/signin');
     })
     .catch((err)=> {
