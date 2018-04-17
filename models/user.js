@@ -7,7 +7,6 @@ const userSchema  = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: {type: String, required: true},
   tvshows: [{type: mongoose.Schema.ObjectId, ref: 'Tvshow'}]
-  // favorites: [{type: String}]
 //---------------VALID OR NOT---------------------------------------------------
 });
 userSchema.methods.validPassword = function validPassword(password){

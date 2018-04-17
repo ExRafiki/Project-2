@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const poster   = require('./poster');
+const review   = require('./review');
 //------------------------------------------------------------------------------
 const showSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -9,7 +9,7 @@ const showSchema = new mongoose.Schema({
   season: { type: Number},
   platform: { type: String},
   image: { type: String, required: true },
-  posters: [{type: mongoose.Schema.ObjectId, ref: 'Poster'}],
+  reviews: [{type: mongoose.Schema.ObjectId, ref: 'Review'}],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 //------------------------------------------------------------------------------

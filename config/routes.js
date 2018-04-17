@@ -50,5 +50,8 @@ router.route('/*').get((req, res) =>{
   req.flash('danger', 'THE URL REQUEST AINT HERE');
   res.render('statics/404.ejs');
 });
+//--------COMMENTS-------------------------------------------------------
+router.post('/tvshows/:id/reviews', secureRoute, tvshow.commentNew);
+router.delete('/tvshows/:id/reviews/:reviewId', secureRoute, tvshow.commentDelete);
 //------------------------------------------------------------------------------
 module.exports = router;

@@ -1,4 +1,5 @@
 const Tvshow = require('../models/show');
+const Review = require('../models/review');
 //----------TV SHOW MODELS 7---------------------------------------------------
 function tvshowsIndex(req, res){
   Tvshow
@@ -17,7 +18,7 @@ function tvshowsNew(req,res){
 function tvshowsShow(req,res){
   Tvshow
     .findById(req.params.id)
-    .populate('posters')
+    .populate('reviews')
     .exec()
     .then(tvshow => {
       res.render('tvshows/show', {tvshow});
@@ -27,7 +28,7 @@ function tvshowsShow(req,res){
 function tvshowsEdit(req,res){
   Tvshow
     .findById(req.params.id)
-    .populate('posters')
+    .populate('reviews')
     .exec()
     .then(tvshow => {
       res.render('tvshows/edit', {tvshow});
@@ -61,6 +62,48 @@ function tvshowsUpdate(req, res){
     .then(tvshow => res.redirect(`/tvshows/${tvshow._id}`));
 }
 //------------------------------------------------------------------------------
+function commentCreate(req, res){
+  // const Comment = Tvshow.comment.id(req.params.commentId);// trying to get the comment individually req not defined
+  // // req.body.user = req.currentUser;
+  // Comment
+  //   .findById(req.params.id)
+  //   .exec()
+  //   .then(tvshow => {
+  //     tvshow.comment.push(req.body);
+  //     return tvshow.save();
+  //   });
+  // // add a catch error after here ?
+  Tvshow
+    .findById(req.params.id)
+    .exec()
+    .then(show => {
+      req.body.user = req.currentUser;
+      const review = Review.create(req.body);
+
+      show.reviews.push(review);
+
+      return show.save();
+    })
+    .then(show => {
+      // redirect back to tvshow show page
+      res.redirect(`/tvshows/${show._id}`);
+    });
+}
+//------------------------------------------------------------------------------
+function commentDelete(req, res) {
+  const comment = Tvshow.comment.id(req.params.commentId);//
+  // req.body.user = req.currentUser;
+  Comment
+    .findById(req.params.id)
+    .exec()
+    .then(tvshow => {
+      comment.remove();
+      return tvshow.save();
+    })
+    .then(tvshow => res.redirect(`/tvshows/${tvshow.id}`));
+  // add a catch error after here ?
+}
+//------------------------------------------------------------------------------
 module.exports = {
   index: tvshowsIndex,
   new: tvshowsNew,
@@ -68,5 +111,7 @@ module.exports = {
   edit: tvshowsEdit,
   delete: tvshowsDelete,
   create: tvshowsCreate,
-  update: tvshowsUpdate
+  update: tvshowsUpdate,
+  commentNew: commentCreate,
+  commentDelete: commentDelete
 };

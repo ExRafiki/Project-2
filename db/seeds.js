@@ -6,6 +6,7 @@ mongoose.connect(databaseURI);
 //------------Require the models------------------------------------------------
 const Tvshow          = require('../models/show');
 const User            = require('../models/user');
+const Review          = require('../models/review');
 //------------Drop previous seeds-----------------------------------------------
 Tvshow.collection.drop();
 User.collection.drop();
@@ -42,8 +43,22 @@ Tvshow.create({
   season: 3,
   platform: 'internet',
   image: 'https://ia.media-imdb.com/images/M/MV5BYTY0NDcwNDAtODQ0Ni00MmQzLTgxZGItYjM0ZjU1OWI3ZjNlXkEyXkFqcGdeQXVyMTgyMzEyNDY@._V1_UY268_CR5,0,182,268_AL_.jpg'
-
+},{
+  name: 'Lost in Space',
+  genre: 'Adventure',
+  year: new Date(2015,12,5),
+  popularity: 'High',
+  season: 1,
+  platform: 'internet',
+  image: 'https://ia.media-imdb.com/images/M/MV5BMjI3MjI5OTczNV5BMl5BanBnXkFtZTgwODA4MTc5NDM@._V1_UY1200_CR90,0,630,1200_AL_.jpg'
 })
-
+  .then(tvshow =>{
+    console.log(`${tvshow.length} tvshows made!`);
+    return Review.create([
+      {
+        comment: 'This is ok'
+      }
+    ]);
+  })
   .catch(err => console.log(err))
   .finally(()=> mongoose.connection.close());
