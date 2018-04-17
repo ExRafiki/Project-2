@@ -52,6 +52,6 @@ router.route('/*').get((req, res) =>{
 });
 //--------COMMENTS-------------------------------------------------------
 router.post('/tvshows/:id/reviews', secureRoute, tvshow.commentNew);
-router.delete('/tvshows/:id/reviews/:reviewId', secureRoute, tvshow.commentDelete);
+router.delete('/tvshows/:showId/reviews/:reviewId', secureRoute, tvshow.commentDelete);
 //------------------------------------------------------------------------------
 module.exports = router;

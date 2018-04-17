@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const Tvshow = require('../models/show');
+
 //------------------------------------------------------------------------------
 function userDelete(req, res) {
   User
@@ -10,6 +12,19 @@ function userDelete(req, res) {
   // });
 }
 
+// function usersShow(req, res) {
+//   User
+//     .findById(req.params.id)
+//     .exec()
+//     .then(user => {
+//       Tvshow
+//         .find({ user: user.id })
+//         .exec()
+//         .then(shows => {
+//           res.render('users/show', { user, shows })
+//         })
+//     })
+// }
 function userPop(req, res){
   res.render('users/profile');
 }

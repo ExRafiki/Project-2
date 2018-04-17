@@ -18,9 +18,10 @@ function tvshowsNew(req,res){
 function tvshowsShow(req,res){
   Tvshow
     .findById(req.params.id)
-    .populate('reviews')
+    .populate('reviews.user')
     .exec()
     .then(tvshow => {
+      console.log('inside the tvshow function--->',tvshow.reviews);
       res.render('tvshows/show', {tvshow});
     });
 }
@@ -78,30 +79,30 @@ function commentCreate(req, res){
     .exec()
     .then(show => {
       req.body.user = req.currentUser;
-      const review = Review.create(req.body);
 
-      show.reviews.push(review);
-
-      return show.save();
-    })
-    .then(show => {
-      // redirect back to tvshow show page
-      res.redirect(`/tvshows/${show._id}`);
+      Review
+        .create(req.body)
+        .then(review => {
+          show.reviews.push(review);
+          return show.save();
+        })
+        .then(show => {
+          res.redirect(`/tvshows/${show._id}`);
+        });
     });
 }
 //------------------------------------------------------------------------------
 function commentDelete(req, res) {
-  const comment = Tvshow.comment.id(req.params.commentId);//
-  // req.body.user = req.currentUser;
-  Comment
-    .findById(req.params.id)
+  Tvshow
+    .findById(req.params.showId)
     .exec()
-    .then(tvshow => {
-      comment.remove();
-      return tvshow.save();
+    .then(show => {
+      const review = show.reviews.id(req.params.reviewId);
+      review.remove();
+      return show.save();
     })
-    .then(tvshow => res.redirect(`/tvshows/${tvshow.id}`));
-  // add a catch error after here ?
+    .then(show => res.redirect(`/tvshows/${show._id}`));
+
 }
 //------------------------------------------------------------------------------
 module.exports = {

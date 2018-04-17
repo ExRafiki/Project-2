@@ -12,7 +12,7 @@
   <div class='row'>
   <div class="card-image">
   <p>Comments</p>
-<form class="col l12" action="/tvshows/<%= tvshow._id/reviews %>" method="post">
+<form class="col l12" action="/tvshows/<%= tvshow._id %>/reviews" method="post">
   <div class="input-field col l12">
     <input type="text" name="content" id="comment_field" >
     <label for="comment_field">Write a review</label>
@@ -21,7 +21,7 @@
     <button class="green btn">Post</button>
   </div>
 </form>
-  <% tvshow.review.forEach(review => { %>
+  <% tvshow.reviews.forEach(review => { %>
       <div class="col s16 m16">
       <div class="card">
         <div class="card-image">
@@ -29,13 +29,14 @@
         </div>
           <div class="card-content">
             <ul>
-              <% review.comment.forEach(comment => { %>
-                <li><%= comment %></li>
-              <% }) %>
+              <%= review.content %>
+              <% if(review.user) {%>
+              <%= review.user.username %>
+              <% } %>
             </ul>
         </div>
         <div class="card-action">
-          <form method ="POST"action ="/reviews/<%= review._id %>">
+          <form method ="POST"action ="/tvshows/<%= tvshow._id %>/reviews/<%= review._id %>">
           <input type="hidden" name="_method" value="DELETE">
           <button class="red btn">Deletion</button>
           </form>
