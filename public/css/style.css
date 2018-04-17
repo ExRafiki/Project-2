@@ -1,0 +1,22 @@
+#Logo {
+  font-family: 'Gloria Hallelujah';
+  font-size: 40px;
+  padding-left: 40px;
+}
+
+main{
+  padding-top: 80px;
+}
+
+nav {
+  height: 80px;
+
+}
+ul a {
+  height: 80px;
+}
+
+li {
+  height:  80px;
+  font-size: 30px;
+}

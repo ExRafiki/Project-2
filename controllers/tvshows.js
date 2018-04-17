@@ -25,7 +25,7 @@ function tvshowsShow(req,res){
       res.render('tvshows/show', {tvshow});
     });
 }
-//----------TV SHOW EDIT--------------------------------------------------------
+//---------TV SHOW EDIT---------------------------------------------------------
 function tvshowsEdit(req,res){
   Tvshow
     .findById(req.params.id)
@@ -62,7 +62,7 @@ function tvshowsUpdate(req, res){
     })
     .then(tvshow => res.redirect(`/tvshows/${tvshow._id}`));
 }
-//----------TV Review SHOW------------------------------------------------------
+//----------TV Review CREATE------------------------------------------------------
 function reviewCreate(req, res){
   Tvshow
     .findById(req.params.id)

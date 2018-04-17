@@ -22,8 +22,8 @@
                 </div>
               </div>
               <div class="card-action">
-                <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Tv Show</a>
-                <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit Tv Show</a>
+                <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Show</a>
+                <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit Show</a>
               </div>
             </div>
               <div class="card-image">
@@ -33,7 +33,7 @@
           </div>
         <% }) %>
       </div>
-<%# //----------ALL TABS----------------------------------------------------- %>
+<%# //----------SPECIFIC TABS------------------------------------------------ %>
       <% if(locals.isLoggedIn) {%>
       <div id="test2" class="col s12">
         <% tvshows.forEach(tvshow => {
@@ -49,8 +49,8 @@
                     </div>
                   </div>
                   <div class="card-action">
-                    <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Tv Show</a>
-                    <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit Tv Show</a>
+                    <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Show</a>
+                    <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit Show</a>
                   </div>
                 </div>
                   <div class="card-image">
