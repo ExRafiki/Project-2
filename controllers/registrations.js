@@ -1,9 +1,9 @@
 const User = require('../models/user');
-//------------------------------------------------------------------------------
+//-----------REGISTRATION NEW---------------------------------------------------
 function newReg(req, res) {
   res.render('registrations/new');
 }
-//------------------------------------------------------------------------------
+//-----------REGISTRATION CREATE------------------------------------------------
 function createReg(req, res, next){
   User
     .create(req.body)

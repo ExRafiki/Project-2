@@ -1,7 +1,7 @@
 const mongoose    = require('mongoose');
 const bcrypt      = require('bcrypt');
 mongoose.Promise = require('bluebird');
-
+//----------USER SCHEMA---------------------------------------------------------
 const userSchema  = new mongoose.Schema({
   username: { type: String, required: true},
   email: { type: String, required: true, unique: true },
@@ -12,7 +12,7 @@ const userSchema  = new mongoose.Schema({
 userSchema.methods.validPassword = function validPassword(password){
   return bcrypt.compareSync(password, this.password);
 };
-//------------------------------------------------------------------------------
+//---------------VIRTUAL--------------------------------------------------------
 userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation){

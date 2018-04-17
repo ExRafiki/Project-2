@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-
+//----------Review SCHEMA---------------------------------------------------------
 const reviewSchema = new mongoose.Schema({
   content: String,
   rating: Number,
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
-
+//----------SHOW SCHEMA---------------------------------------------------------
 const showSchema = new mongoose.Schema({
   name: { type: String, required: true },
   genre: { type: String},

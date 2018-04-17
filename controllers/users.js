@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const Tvshow = require('../models/show');
 
-//------------------------------------------------------------------------------
+//---------USER DELETE----------------------------------------------------------
 function userDelete(req, res) {
   User
     .findById(req.params.id)// find all users for now if you can set it up
@@ -11,7 +11,7 @@ function userDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
   // });
 }
-
+//----------USER SHOW-----------------------------------------------------------
 // function usersShow(req, res) {
 //   User
 //     .findById(req.params.id)

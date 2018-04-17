@@ -1,6 +1,6 @@
 const Tvshow = require('../models/show');
 const Review = require('../models/review');
-//----------TV SHOW MODELS 7---------------------------------------------------
+//----------TV SHOW MODELS 7----------------------------------------------------
 function tvshowsIndex(req, res){
   Tvshow
     .find()
@@ -10,11 +10,11 @@ function tvshowsIndex(req, res){
       res.render('tvshows/index', {tvshows});
     });
 }
-//------------------------------------------------------------------------------
+//----------TV SHOW NEW---------------------------------------------------------
 function tvshowsNew(req,res){
   res.render('tvshows/new');
 }
-//------------------------------------------------------------------------------
+//----------TV SHOW SHOW--------------------------------------------------------
 function tvshowsShow(req,res){
   Tvshow
     .findById(req.params.id)
@@ -25,7 +25,7 @@ function tvshowsShow(req,res){
       res.render('tvshows/show', {tvshow});
     });
 }
-//------------------------------------------------------------------------------
+//----------TV SHOW EDIT--------------------------------------------------------
 function tvshowsEdit(req,res){
   Tvshow
     .findById(req.params.id)
@@ -35,7 +35,7 @@ function tvshowsEdit(req,res){
       res.render('tvshows/edit', {tvshow});
     });
 }
-//------------------------------------------------------------------------------
+//----------TV SHOW DELETE------------------------------------------------------
 function tvshowsDelete(req, res){
   Tvshow
     .findById(req.params.id)
@@ -43,7 +43,7 @@ function tvshowsDelete(req, res){
     .then(tvshow => tvshow.remove())
     .then(() => res.redirect('/tvshows'));
 }
-//------------------------------------------------------------------------------
+//----------TV SHOW CREATE------------------------------------------------------
 function tvshowsCreate(req, res){
   req.body.user = req.currentUser;
 
@@ -51,7 +51,7 @@ function tvshowsCreate(req, res){
     .create(req.body)
     .then(() => res.redirect('/tvshows'));
 }
-//------------------------------------------------------------------------------
+//----------TV SHOW UPDATE------------------------------------------------------
 function tvshowsUpdate(req, res){
   Tvshow
     .findById(req.params.id)
@@ -62,18 +62,8 @@ function tvshowsUpdate(req, res){
     })
     .then(tvshow => res.redirect(`/tvshows/${tvshow._id}`));
 }
-//------------------------------------------------------------------------------
-function commentCreate(req, res){
-  // const Comment = Tvshow.comment.id(req.params.commentId);// trying to get the comment individually req not defined
-  // // req.body.user = req.currentUser;
-  // Comment
-  //   .findById(req.params.id)
-  //   .exec()
-  //   .then(tvshow => {
-  //     tvshow.comment.push(req.body);
-  //     return tvshow.save();
-  //   });
-  // // add a catch error after here ?
+//----------TV Review SHOW------------------------------------------------------
+function reviewCreate(req, res){
   Tvshow
     .findById(req.params.id)
     .exec()
@@ -91,8 +81,8 @@ function commentCreate(req, res){
         });
     });
 }
-//------------------------------------------------------------------------------
-function commentDelete(req, res) {
+//----------TV Review DELETE----------------------------------------------------
+function reviewDelete(req, res) {
   Tvshow
     .findById(req.params.showId)
     .exec()
@@ -102,7 +92,6 @@ function commentDelete(req, res) {
       return show.save();
     })
     .then(show => res.redirect(`/tvshows/${show._id}`));
-
 }
 //------------------------------------------------------------------------------
 module.exports = {
@@ -113,6 +102,6 @@ module.exports = {
   delete: tvshowsDelete,
   create: tvshowsCreate,
   update: tvshowsUpdate,
-  commentNew: commentCreate,
-  commentDelete: commentDelete
+  commentNew: reviewCreate,
+  commentDelete: reviewDelete
 };

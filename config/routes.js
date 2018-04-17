@@ -3,7 +3,7 @@ const tvshow        = require('../controllers/tvshows');
 const registrations = require('../controllers/registrations');
 const sessions      = require('../controllers/sessions');
 const user          = require('../controllers/users');
-// //------------------------------------------------------------------------------
+//---------ROUTE SECURE---------------------------------------------------------
 function secureRoute(req, res, next){
   if(!req.session.userId){
     return req.session.regenerate(() =>{
