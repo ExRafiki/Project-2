@@ -1,4 +1,16 @@
 <%#  %>
+
+<% if(messages){ %>
+  <% for (type in messages) { %>
+  <div class="col s12 l12">
+    <div class="card blue lighten-3">
+      <div class="card-content black-text">
+        <span class="card-title"><%= messages[type] %></span>
+      </div>
+    </div>
+  </div>
+<% } %>
+<% } %>
 <div class="col s12 m7 tile">
     <h2 class="header"><%= tvshow.name %></h2>
     <div class="card horizontal">
@@ -6,8 +18,8 @@
         <img src="<%= tvshow.image %>"style="width:300px;height:400px;">
       </div>
       <div class="card-stacked">
-        <div class="card-content">
-          <p></p>
+        <div class="card-content" id="content1">
+<%# //----------SHOW Reviews------------------------------------------------- %>
           <% tvshow.reviews.forEach(review => { %>
               <div class="col s16 m16">
               <div class="card">
@@ -46,12 +58,10 @@
     <label for="comment_field">Write a review</label>
   </div>
   <div class="input-field col l12">
-    <%# <a onclick="M.toast({html: 'You have commented!'})"</a> %>
+    <a onclick="M.toast({html: 'You have commented!'})"</a>
     <button class="green btn">Post</button>
   </div>
-<%# //----------SHOW Reviews------------------------------------------------- %>
 </form>
-
 </div>
 </div>
 </div>

@@ -77,6 +77,7 @@ function reviewCreate(req, res){
           return show.save();
         })
         .then(show => {
+          req.flash('confirm', 'you have successfully commented.');
           res.redirect(`/tvshows/${show._id}`);
         });
       // .catch(err => res.render('error', { err }));

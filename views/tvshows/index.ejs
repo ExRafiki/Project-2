@@ -9,55 +9,73 @@
         </ul>
       </div>
 <%# //----------ALL TABS----------------------------------------------------- %>
-      <div id="test1" class="col s12">
-        <% tvshows.forEach(tvshow => { %>
-          <div class="col s12 m6">
-            <div class="card horizontal amber darken-3">
-            <div class="card-stacked">
-              <div class="card-content white-text">
-                <span class="card-title"><%= tvshow.name %></span>
-                <div class"card-content">
+<div class="row">
+  <div id="test1" class="col s12">
+    <% tvshows.forEach(tvshow => { %>
+      <div class="col s12 m12 l6">
+        <div class="card horizontal amber darken-3">
+          <div class="card-stacked">
+            <div class="card-content white-text">
+              <span class="card-title"><%= tvshow.name %></span>
+              <div class="activator" class"card-content">
+                <hr>
                 <p>Seasons: <%= tvshow.season %></p>
                 <p>Popularity: <%= tvshow.popularity %></p>
-                </div>
-              </div>
-              <div class="card-action">
-                <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Show</a>
-                <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit Show</a>
+                <span class="card-title activator white-text text-darken-4">info<i class="material-icons right"></i></span>
               </div>
             </div>
-              <div class="card-image">
-              <img src="<%= tvshow.image %>"style="width:200px;height:300px;">
-              </div>
+            <div class="card-action">
+              <a href="/tvshows/<%= tvshow._id %>" class="white-text">View</a>
+              <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit</a>
             </div>
           </div>
-        <% }) %>
+          <div class="card-image">
+            <img class="activator" src="<%= tvshow.image %>"style="width:300px;height:100%;">
+          </div>
+          <div class="card-reveal amber darken-6 white-text">
+            <span class="card-title white-text text-darken-4">Card Title<i class="material-icons right">X</i></span>
+              <p>Genre: <%= tvshow.genre %></p>
+              <p>Platform: <%= tvshow.platform %></p>
+              <p>Seasons: <%= tvshow.season %></p>
+              <p>Popularity: <%= tvshow.popularity %></p>
+          </div>
+        </div>
       </div>
+    <% }) %>
+</div>
 <%# //----------SPECIFIC TABS------------------------------------------------ %>
       <% if(locals.isLoggedIn) {%>
       <div id="test2" class="col s12">
         <% tvshows.forEach(tvshow => {
             if((tvshow.user && tvshow.user.id) === locals.user.id){ %>
-              <div class="col s12 m6">
+              <div class="col s12 m12 l6">
                 <div class="card horizontal amber darken-3">
-                <div class="card-stacked">
-                  <div class="card-content white-text">
-                    <span class="card-title"><%= tvshow.name %></span>
-                    <div class"card-content">
-                    <p>Seasons: <%= tvshow.season %></p>
-                    <p>Popularity: <%= tvshow.popularity %></p>
+                  <div class="card-stacked">
+                    <div class="card-content white-text">
+                      <span class="card-title"><%= tvshow.name %></span>
+                      <div class="activator" class"card-content">
+                        <span class="card-title activator white-text text-darken-4">Details<i class="material-icons right"></i></span>
+                        <p>Seasons: <%= tvshow.season %></p>
+                        <p>Popularity: <%= tvshow.popularity %></p>
+                      </div>
+                    </div>
+                    <div class="card-action">
+                      <a href="/tvshows/<%= tvshow._id %>" class="white-text">View</a>
+                      <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit</a>
                     </div>
                   </div>
-                  <div class="card-action">
-                    <a href="/tvshows/<%= tvshow._id %>" class="white-text">View Show</a>
-                    <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit Show</a>
+                  <div class="card-image">
+                    <img class="activator" src="<%= tvshow.image %>"style="width:300px;height:100%;">
+                  </div>
+                  <div class="card-reveal amber darken-6 white-text">
+                    <span class="card-title white-text text-darken-4">Card Title<i class="material-icons right">X</i></span>
+                      <p>Genre: <%= tvshow.genre %></p>
+                      <p>Platform: <%= tvshow.platform %></p>
+                      <p>Seasons: <%= tvshow.season %></p>
+                      <p>Popularity: <%= tvshow.popularity %></p>
                   </div>
                 </div>
-                  <div class="card-image">
-                  <img src="<%= tvshow.image %>"style="width:200px;height:300px;">
               </div>
-            </div>
-          </div>
           <% } %>
         <% }) %>
         <% } %>

@@ -14,8 +14,8 @@ User.collection.drop();
 User
   .create([
     {
-      username: 'gop',
-      email: 'a@a',
+      username: 'Fil',
+      email: 'a@a.com',
       password: 'gop',
       passwordConfirmation: 'gop'
     },
@@ -35,16 +35,16 @@ User
       year: new Date(2015,12,5),
       popularity: 'High',
       season: 1,
-      platform: 'internet',
+      platform: 'Netflix',
       image: 'https://static2.tribute.ca/poster/540x800/marco-polo-netflix-5823.jpg',
       user: users[0]._id
     },{
       name: 'Spartacus',
-      genre: 'Horror',
+      genre: 'Action',
       year: new Date(2015,12,5),
-      popularity: 'High',
+      popularity: 'Low',
       season: 7,
-      platform: 'internet',
+      platform: 'HBO',
       image: 'https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/e6/e68879a4839773d105f0689875dace83_500x735.jpg',
       user: users[1]._id
     },{
@@ -53,7 +53,7 @@ User
       year: new Date(2015,12,5),
       popularity: 'High',
       season: 3,
-      platform: 'internet',
+      platform: 'Everywhere',
       image: 'https://cdn.europosters.eu/image/750/posters/breaking-bad-i-am-the-one-who-knocks-i15742.jpg',
       user: users[0]._id
     },{
@@ -62,7 +62,7 @@ User
       year: new Date(2015,12,5),
       popularity: 'High',
       season: 3,
-      platform: 'internet',
+      platform: 'Channel 3',
       image: 'https://ia.media-imdb.com/images/M/MV5BYTY0NDcwNDAtODQ0Ni00MmQzLTgxZGItYjM0ZjU1OWI3ZjNlXkEyXkFqcGdeQXVyMTgyMzEyNDY@._V1_UY268_CR5,0,182,268_AL_.jpg',
       user: users[1]._id
     },{
@@ -71,7 +71,7 @@ User
       year: new Date(2015,12,5),
       popularity: 'High',
       season: 1,
-      platform: 'internet',
+      platform: 'Netflix',
       image: 'https://ia.media-imdb.com/images/M/MV5BMjI3MjI5OTczNV5BMl5BanBnXkFtZTgwODA4MTc5NDM@._V1_UY1200_CR90,0,630,1200_AL_.jpg',
       user: users[0]._id
     });

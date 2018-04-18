@@ -5,7 +5,7 @@
 }
 
 main{
-  padding-top: 80px;
+  padding-top: 30px;
 }
 
 nav {
@@ -26,8 +26,12 @@ li {
   height: 400px;
 }
 
-/* .card-stacked{
-  background: red;
-  overflow: scroll;
-  height: 400px;
-} */
+#content1 {
+  background: orange;
+}
+
+hr {
+  height: 0px;
+  border: 0.3px solid;
+  border-color: white;
+}
