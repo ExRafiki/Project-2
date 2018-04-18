@@ -6,7 +6,7 @@ mongoose.connect(databaseURI);
 //------------Require the models------------------------------------------------
 const Tvshow          = require('../models/show');
 const User            = require('../models/user');
-const Review          = require('../models/review');
+// const Review          = require('../models/review');
 //------------Drop previous seeds-----------------------------------------------
 Tvshow.collection.drop();
 User.collection.drop();
@@ -64,7 +64,7 @@ User
       season: 3,
       platform: 'internet',
       image: 'https://ia.media-imdb.com/images/M/MV5BYTY0NDcwNDAtODQ0Ni00MmQzLTgxZGItYjM0ZjU1OWI3ZjNlXkEyXkFqcGdeQXVyMTgyMzEyNDY@._V1_UY268_CR5,0,182,268_AL_.jpg',
-      user: users[0]._id
+      user: users[1]._id
     },{
       name: 'Lost in Space',
       genre: 'Adventure',

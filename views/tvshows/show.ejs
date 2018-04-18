@@ -14,12 +14,10 @@
                 <div class="card-image">
                 </div>
                   <div class="card-content">
-                    <ul>
-                      <%= review.content %>
-                      <% if(review.user) {%>
-                      <%= review.user.username %>
+                    <p>
+                      <%= review.content %> Posted by : <% if(review.user){%><%= review.user.username %>
                       <% } %>
-                    </ul>
+                    </p>
                 </div>
                 <div class="card-action">
                   <form method ="POST"action ="/tvshows/<%= tvshow._id %>/reviews/<%= review._id %>">
@@ -44,10 +42,11 @@
   <p>Comments</p>
 <form class="col l12" action="/tvshows/<%= tvshow._id %>/reviews" method="post">
   <div class="input-field col l12">
-    <input type="text" name="content" id="comment_field" >
+    <input type="text" name="content" id="comment_field" maxlength="60" >
     <label for="comment_field">Write a review</label>
   </div>
   <div class="input-field col l12">
+    <%# <a onclick="M.toast({html: 'You have commented!'})"</a> %>
     <button class="green btn">Post</button>
   </div>
 <%# //----------SHOW Reviews------------------------------------------------- %>

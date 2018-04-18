@@ -79,6 +79,7 @@ function reviewCreate(req, res){
         .then(show => {
           res.redirect(`/tvshows/${show._id}`);
         });
+      // .catch(err => res.render('error', { err }));
     });
 }
 //----------TV Review DELETE----------------------------------------------------
@@ -91,7 +92,8 @@ function reviewDelete(req, res) {
       review.remove();
       return show.save();
     })
-    .then(show => res.redirect(`/tvshows/${show._id}`));
+    .then(show => res.redirect(`/tvshows/${show._id}`))
+    .catch(err => res.render('error', { err }));
 }
 //------------------------------------------------------------------------------
 module.exports = {
