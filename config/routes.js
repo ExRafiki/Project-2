@@ -34,9 +34,6 @@ router.route('/tvshows/:id/edit')
 //--------COMMENTS-------------------------------------------------------
 router.post('/tvshows/:id/reviews', secureRoute, tvshow.commentNew);
 router.delete('/tvshows/:showId/reviews/:reviewId', secureRoute, tvshow.commentDelete);
-
-//------------------------------------------------------------------------------
-
 //-------USER ROUTES------------------------------------------------------------
 router.route('/users/:id')
   .get(secureRoute, user.show)

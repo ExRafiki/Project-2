@@ -80,7 +80,6 @@ function reviewCreate(req, res){
           req.flash('confirm', 'You have successfully commented on a show!');
           res.redirect(`/tvshows/${show._id}`);
         });
-      // .catch(err => res.render('error', { err }));
     });
 }
 //----------TV Review DELETE----------------------------------------------------

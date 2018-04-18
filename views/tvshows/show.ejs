@@ -1,4 +1,4 @@
-<%#  %>
+<%# //-----------------------ERROR BANNER------------------------------------ %>
 <% if(messages){ %>
   <% for (type in messages) { %>
   <div class="col s12 l12">
@@ -10,6 +10,7 @@
   </div>
 <% } %>
 <% } %>
+<%# //-----------------------TV TITLE---------------------------------------- %>
 <div class="col s12 m6 l10 tile">
     <h2 class="header"><%= tvshow.name %></h2>
     <div class="card horizontal">
@@ -43,13 +44,14 @@
       </div>
     </div>
   </div>
-<%# //----------------------------------------------------------------------- %>
+<%# //-----------------------DELETE BUTTON----------------------------------- %>
   <div class='row'>
   <div class="card-image">
     <form action="/tvshows/<%= tvshow.id %>" method="post">
       <input type="hidden" name="_method" value="DELETE">
     <button class="btn red">Delete Show</button>
   </form>
+<%# //-----------------------COMMENTS---------------------------------------- %>
   <p>Comments</p>
 <form class="col l12" action="/tvshows/<%= tvshow._id %>/reviews" method="post">
   <div class="input-field col l12">

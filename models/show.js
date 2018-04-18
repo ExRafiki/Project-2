@@ -17,5 +17,5 @@ const showSchema = new mongoose.Schema({
   reviews: [reviewSchema],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
-
+//------------------------------------------------------------------------------
 module.exports = mongoose.model('Show', showSchema);

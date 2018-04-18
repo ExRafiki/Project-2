@@ -13,7 +13,6 @@ const User                  = require('./models/user');
 const flash                 = require('express-flash');
 const session               = require('express-session');
 const errorHandler          = require('./lib/errorHandler');
-
 //------Connecting db and promise-----------------------------------------
 mongoose.Promise            = require('bluebird');
 mongoose.connect(databaseURI);
