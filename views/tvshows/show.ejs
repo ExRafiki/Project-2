@@ -1,17 +1,46 @@
-<div class='center-align'>
-  <div class="row">
-    <h3 class="col l10"><%= tvshow.name %></h3>
-      <div class="col 12">
+<%#  %>
+<div class="col s12 m7 tile">
+    <h2 class="header"><%= tvshow.name %></h2>
+    <div class="card horizontal">
+      <div class="card-image">
         <img src="<%= tvshow.image %>"style="width:300px;height:400px;">
-        <form action="/tvshows/<%= tvshow.id %>" method="post">
-          <input type="hidden" name="_method" value="DELETE">
-        <button class="btn red">Delete Show</button>
-      </form>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p></p>
+          <% tvshow.reviews.forEach(review => { %>
+              <div class="col s16 m16">
+              <div class="card">
+                <div class="card-image">
+                </div>
+                  <div class="card-content">
+                    <ul>
+                      <%= review.content %>
+                      <% if(review.user) {%>
+                      <%= review.user.username %>
+                      <% } %>
+                    </ul>
+                </div>
+                <div class="card-action">
+                  <form method ="POST"action ="/tvshows/<%= tvshow._id %>/reviews/<%= review._id %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="red btn">Deletion</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
     </div>
   </div>
 <%# //----------------------------------------------------------------------- %>
   <div class='row'>
   <div class="card-image">
+    <form action="/tvshows/<%= tvshow.id %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+    <button class="btn red">Delete Show</button>
+  </form>
   <p>Comments</p>
 <form class="col l12" action="/tvshows/<%= tvshow._id %>/reviews" method="post">
   <div class="input-field col l12">
@@ -23,29 +52,7 @@
   </div>
 <%# //----------SHOW Reviews------------------------------------------------- %>
 </form>
-  <% tvshow.reviews.forEach(review => { %>
-      <div class="col s16 m16">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= review.url %>">
-        </div>
-          <div class="card-content">
-            <ul>
-              <%= review.content %>
-              <% if(review.user) {%>
-              <%= review.user.username %>
-              <% } %>
-            </ul>
-        </div>
-        <div class="card-action">
-          <form method ="POST"action ="/tvshows/<%= tvshow._id %>/reviews/<%= review._id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="red btn">Deletion</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  <% }) %>
+
 </div>
 </div>
 </div>

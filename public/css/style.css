@@ -1,6 +1,6 @@
 #Logo {
   font-family: 'Gloria Hallelujah';
-  font-size: 40px;
+  font-size: 50px;
   padding-left: 40px;
 }
 
@@ -20,3 +20,14 @@ li {
   height:  80px;
   font-size: 30px;
 }
+
+.card-stacked {
+  overflow: scroll;
+  height: 400px;
+}
+
+/* .card-stacked{
+  background: red;
+  overflow: scroll;
+  height: 400px;
+} */

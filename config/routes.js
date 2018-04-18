@@ -31,9 +31,20 @@ router.route('/tvshows/:id')
 router.route('/tvshows/:id/edit')
   .get(tvshow.edit);
 
-router.route('/users/profile')
-  .get(user.create);
-// .get(user.delete);
+//--------COMMENTS-------------------------------------------------------
+router.post('/tvshows/:id/reviews', secureRoute, tvshow.commentNew);
+router.delete('/tvshows/:showId/reviews/:reviewId', secureRoute, tvshow.commentDelete);
+
+//------------------------------------------------------------------------------
+
+//-------USER ROUTES------------------------------------------------------------
+router.route('/users/:id')
+  .get(secureRoute, user.show)
+  .put(secureRoute, user.update)
+  .delete(secureRoute, user.delete);
+
+router.route('/users/:id/edit')
+  .get(secureRoute, user.edit);
 //--------ROUTES TO LOGIN-------------------------------------------------------
 router.route('/signin')
   .get(sessions.new)
@@ -50,8 +61,4 @@ router.route('/*').get((req, res) =>{
   req.flash('danger', 'THE URL REQUEST AINT HERE');
   res.render('statics/404.ejs');
 });
-//--------COMMENTS-------------------------------------------------------
-router.post('/tvshows/:id/reviews', secureRoute, tvshow.commentNew);
-router.delete('/tvshows/:showId/reviews/:reviewId', secureRoute, tvshow.commentDelete);
-//------------------------------------------------------------------------------
 module.exports = router;
