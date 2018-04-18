@@ -3,47 +3,56 @@
   font-size: 50px;
   padding-left: 40px;
 }
-
 main{
   padding-top: 30px;
+  background-image: url(https://wallpapercave.com/wp/Ohj5NR2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 nav {
   height: 80px;
-
 }
 ul a {
   height: 80px;
 }
-
 li {
   height:  80px;
   font-size: 30px;
 }
-
 .card-stacked {
   overflow: scroll;
   height: 400px;
 }
-
 #content1 {
   background: orange;
 }
-
 hr {
   height: 0px;
   border: 0.3px solid;
   border-color: white;
 }
-
 .card {
   border-radius: 15px;
 }
-
 .card-image {
   border-radius: 15px;
 }
-
 .card .card-image img {
   border-radius: 0 15px 15px 0 !important;
+}
+span {
+  padding-top: 140px;
+}
+footer {
+  padding-top: 100px;
+}
+.input-field>label {
+  color: white;
+}
+.card-panel {
+  border-radius: 20px;
+  border: 2px solid white;
+}
+input {
+  color: white;
 }

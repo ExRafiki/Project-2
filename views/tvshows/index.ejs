@@ -1,4 +1,4 @@
-<h2>TV Shows</h2>
+<h2 class="white-text center-align" id="Logo">TV Shows</h2>
   <div class="row">
       <div class="col s12">
         <ul class="tabs">
@@ -15,24 +15,24 @@
             <div class="card horizontal amber darken-3">
             <div class="card-stacked">
               <div class="card-content white-text">
-                <span class="card-title"><%= tvshow.name %></span>
+                <p class="card-title"><%= tvshow.name %></p>
                 <div class="activator" class"card-content">
                 <hr>
                 <p>Seasons: <%= tvshow.season %></p>
                 <p>Popularity: <%= tvshow.popularity %></p>
-                <span class="card-title activator white-text text-darken-4">Details<i class="material-icons right"></i></span>
+                <span class="card-title activator white-text text-darken-4">More info +<i class="material-icons right"></i></span>
                 </div>
               </div>
               <div class="card-action">
                 <a href="/tvshows/<%= tvshow._id %>" class="white-text">View</a>
-                <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit</a>
+                <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Modify</a>
               </div>
             </div>
               <div class="card-image">
               <img src="<%= tvshow.image %>"style="width:300px;height:400px;">
               </div>
               <div class="card-reveal amber darken-6 white-text">
-                <span class="card-title white-text text-darken-4"><%= tvshow.name %><i class="material-icons right">X</i></span>
+                <p class="card-title white-text text-darken-4"><%= tvshow.name %><i class="material-icons right">X</i></p>
                   <p>Genre: <%= tvshow.genre %></p>
                   <p>Platform: <%= tvshow.platform %></p>
                   <p>Seasons: <%= tvshow.season %></p>
@@ -42,7 +42,7 @@
           </div>
         <% }) %>
       </div>
-<%# //----------ALL TABS----------------------------------------------------- %>
+<%# //----------MY TABS----------------------------------------------------- %>
       <% if(locals.isLoggedIn) {%>
       <div id="test2" class="col s12">
         <% tvshows.forEach(tvshow => {
@@ -51,23 +51,24 @@
                 <div class="card horizontal amber darken-3">
                 <div class="card-stacked">
                   <div class="card-content white-text">
-                    <span class="card-title"><%= tvshow.name %></span>
+                    <p class="card-title"><%= tvshow.name %></p>
                     <div class="activator" class"card-content">
-                    <span class="card-title activator white-text text-darken-4">Details<i class="material-icons right"></i></span>
+                    <hr>
                     <p>Seasons: <%= tvshow.season %></p>
                     <p>Popularity: <%= tvshow.popularity %></p>
+                    <span class="card-title activator white-text text-darken-4">More info +<i class="material-icons right"></i></span>
                     </div>
                   </div>
                   <div class="card-action">
                     <a href="/tvshows/<%= tvshow._id %>" class="white-text">View</a>
-                    <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit</a>
+                    <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Modify</a>
                   </div>
                 </div>
                   <div class="card-image">
                   <img src="<%= tvshow.image %>"style="width:300px;height:400px;">
               </div>
               <div class="card-reveal amber darken-6 white-text">
-                <span class="card-title white-text text-darken-4">Card Title<i class="material-icons right">X</i></span>
+                <p class="card-title white-text text-darken-4">Card Title<i class="material-icons right">X</i></p>
                   <p>Genre: <%= tvshow.genre %></p>
                   <p>Platform: <%= tvshow.platform %></p>
                   <p>Seasons: <%= tvshow.season %></p>

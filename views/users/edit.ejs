@@ -1,16 +1,17 @@
+<div class="white-text">
 <%# //----------ERROR BANNER------------------------------------------------- %>
 <div class="row">
   <% if(messages.danger){ %>
     <div class="col s12 l12">
       <div class="card red lighten-3">
         <div class="card-content red-text">
-          <span class="card-title"><%= messages.danger %></span>
+          <p class="card-title"><%= messages.danger %></p>
         </div>
       </div>
     </div>
   <% } %>
 <%# //----------------------------------------------------------------------- %>
-  <h2>Account</h2>
+  <h2 id="Logo">Account</h2>
   <form class="col l12" action="/users/<%= user.id%>" method="post">
     <input type="hidden" name="_method" value="PUT">
       <div class="input-field col l12">
@@ -25,5 +26,5 @@
       <button class="green btn"> Finish Edit</button>
     </div>
   </form>
-
+</div>
 </div>

@@ -5,14 +5,15 @@
     <div class="col s12 l12">
       <div class="card blue lighten-3">
         <div class="card-content black-text">
-          <span class="card-title"><%= messages[type] %></span>
+          <p class="card-title"><%= messages[type] %></p>
         </div>
       </div>
     </div>
   <% } %>
   <% } %>
 <%# //----------------------------------------------------------------------- %>
-  <h2>Sign in</h2>
+<div class="white-text">
+  <h2 id="Logo">Sign in</h2>
   <form class="col l12" action="/signin" method="post">
     <div class="input-field col l12">
       <input type="email" name="email" id="email_field" required>
@@ -26,4 +27,5 @@
       <button class="green btn">Sign in</button>
     </div>
   </form>
+</div>
 </div>

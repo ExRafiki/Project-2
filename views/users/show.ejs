@@ -1,35 +1,36 @@
-<h2>Your details</h2>
+<div class="white-text">
+<h2 id="Logo">Your Profile</h2>
 
 <h3>Username</h3>
-<p><%= user.username %></p>
+<h5><%= user.username %></h5>
 
 <h3>Email</h3>
-<p><%= user.email %></p>
+<h5><%= user.email %></h5>
 
-<h4>Shows</h4>
+<h4>Your Contributions to Just Shows:</h4>
 <% shows.forEach(tvshow => { %>
   <div class="col s12 m6 l6">
     <div class="card horizontal amber darken-3">
       <div class="card-stacked">
         <div class="card-content white-text">
-          <span class="card-title"><%= tvshow.name %></span>
+          <p class="card-title"><%= tvshow.name %></p>
           <div class="activator" class"card-content">
             <hr>
             <p>Seasons: <%= tvshow.season %></p>
             <p>Popularity: <%= tvshow.popularity %></p>
-            <span class="card-title activator white-text text-darken-4">info<i class="material-icons right"></i></span>
+            <span class="card-title activator white-text text-darken-4">More info +<i class="material-icons right"></i></span>
           </div>
         </div>
         <div class="card-action">
           <a href="/tvshows/<%= tvshow._id %>" class="white-text">View</a>
-          <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit</a>
+          <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Modify</a>
         </div>
       </div>
       <div class="card-image">
-        <img class="activator" src="<%= tvshow.image %>"style="width:300px;height:100%;">
+        <img class="activator" src="<%= tvshow.image %>"style="width:300px;height:400px;">
       </div>
       <div class="card-reveal amber darken-6 white-text">
-        <span class="card-title white-text text-darken-4"><%= tvshow.name %><i class="material-icons right">X</i></span>
+        <p class="card-title white-text text-darken-4"><%= tvshow.name %><i class="material-icons right">X</i></p>
           <p>Genre: <%= tvshow.genre %></p>
           <p>Platform: <%= tvshow.platform %></p>
           <p>Seasons: <%= tvshow.season %></p>
@@ -38,3 +39,4 @@
     </div>
   </div>
 <% }) %>
+</div>

@@ -4,13 +4,14 @@
     <div class="col s12 l12">
       <div class="card red lighten-3">
         <div class="card-content red-text">
-          <span class="card-title"><%= messages.danger %></span>
+          <p class="card-title"><%= messages.danger %></p>
         </div>
       </div>
     </div>
   <% } %>
 <%# //----------------------------------------------------------------------- %>
-<h2>Sign up</h2>
+<div class="white-text">
+<h2 id="Logo">Sign up</h2>
   <form class="col l12" action="/signup" method="post">
     <div class="input-field col l12">
       <input type="text" name="username" id="username_field">
@@ -32,4 +33,5 @@
       <button class="green btn"> Signup</button>
     </div>
   </form>
+</div>
 </div>
