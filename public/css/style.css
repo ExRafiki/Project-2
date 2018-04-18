@@ -43,3 +43,7 @@ hr {
 .card-image {
   border-radius: 15px;
 }
+
+.card .card-image img {
+  border-radius: 0 15px 15px 0 !important;
+}
