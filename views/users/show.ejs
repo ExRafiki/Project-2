@@ -8,6 +8,34 @@
 
 <h4>Shows</h4>
 <%= shows %>
-
-<%#  putting favorites in here ?%>
-<%#  no idea how to do it , for each with a display of hte users? but isnt my user fav doing that? %>
+<% shows.forEach(tvshow => { %>
+  <div class="col s12 m6 l6">
+    <div class="card horizontal amber darken-3">
+      <div class="card-stacked">
+        <div class="card-content white-text">
+          <span class="card-title"><%= shows.name %></span>
+          <div class="activator" class"card-content">
+            <hr>
+            <p>Seasons: <%= shows.season %></p>
+            <p>Popularity: <%= shows.popularity %></p>
+            <span class="card-title activator white-text text-darken-4">info<i class="material-icons right"></i></span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="/tvshows/<%= tvshow._id %>" class="white-text">View</a>
+          <a href="/tvshows/<%= tvshow._id %>/edit" class="white-text">Edit</a>
+        </div>
+      </div>
+      <div class="card-image">
+        <img class="activator" src="<%= tvshow.image %>"style="width:300px;height:100%;">
+      </div>
+      <div class="card-reveal amber darken-6 white-text">
+        <span class="card-title white-text text-darken-4">Card Title<i class="material-icons right">X</i></span>
+          <p>Genre: <%= shows.genre %></p>
+          <p>Platform: <%= shows.platform %></p>
+          <p>Seasons: <%= shows.season %></p>
+          <p>Popularity: <%= shows.popularity %></p>
+      </div>
+    </div>
+  </div>
+<% }) %>

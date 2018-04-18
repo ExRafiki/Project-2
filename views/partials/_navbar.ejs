@@ -2,17 +2,19 @@
     <div class="nav-wrapper yellow darken-3">
       <a href="/" class="brand-logo" id="Logo">Just Shows</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+<%#-------------------NORMAL NAVBAR-----------------------------------------  %>
+              <li class="active"><a href="/tvshows">TV-Shows</a></li>
+              <li class="active"><a href="/tvshows/new">+ New Show</a></li>
 <%#----------------LOGIN TABS FOR LOGIN. LOGOUT-----------------------------  %>
       <% if(locals.isLoggedIn){ %>
-        <li class="active"><a href="/logout">Logout (Signed in as <%= locals.user.username %>)</a></li>
         <li class="active"><a href="/users/<%= locals.user._id %>">Profile</a></li>
+        <li class="active"><a href="/users/<%= locals.user._id %>/edit">Change Details</a></li>
+        <li class="active"><a href="/logout">Logout (Signed in as <%= locals.user.username %>)</a></li>
       <% } else { %>
         <li class="active"><a href="/signup">Signup</a></li>
         <li class="active"><a href="/signin">Signin</a></li>
       <% } %>
-<%#-------------------NORMAL NAVBAR-----------------------------------------  %>
-      <li class="active"><a href="/tvshows">TV-Shows</a></li>
-      <li class="active"><a href="/tvshows/new">+ New Show</a></li>
+
     </ul>
   </div>
 </nav>

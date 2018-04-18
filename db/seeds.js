@@ -55,7 +55,7 @@ User
       season: 3,
       platform: 'Everywhere',
       image: 'https://cdn.europosters.eu/image/750/posters/breaking-bad-i-am-the-one-who-knocks-i15742.jpg',
-      user: users[0]._id
+      user: users[1]._id
     },{
       name: 'Have I Got News For You',
       genre: 'Comedy',

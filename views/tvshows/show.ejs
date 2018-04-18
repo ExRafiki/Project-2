@@ -1,5 +1,4 @@
 <%#  %>
-
 <% if(messages){ %>
   <% for (type in messages) { %>
   <div class="col s12 l12">
@@ -11,7 +10,7 @@
   </div>
 <% } %>
 <% } %>
-<div class="col s12 m7 tile">
+<div class="col s12 m6 l10 tile">
     <h2 class="header"><%= tvshow.name %></h2>
     <div class="card horizontal">
       <div class="card-image">
@@ -58,7 +57,7 @@
     <label for="comment_field">Write a review</label>
   </div>
   <div class="input-field col l12">
-    <a onclick="M.toast({html: 'You have commented!'})"</a>
+    <%# <a onclick="M.toast({html: 'You have commented!'})"</a> %>
     <button class="green btn">Post</button>
   </div>
 </form>

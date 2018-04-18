@@ -10,7 +10,7 @@ function userShow(req, res) {
         .find({ user: user._id })
         .exec()
         .then(shows => {
-          res.render('users/show', { user, shows });// would this work putting user and sows together
+          res.render('users/show', { user, shows });
         });
     });
 }
@@ -18,7 +18,6 @@ function userShow(req, res) {
 function userEdit(req, res) {
   User
     .findById(req.params.id)
-    // do i need to populate here ?
     .exec()
     .then(user => res.render('users/edit', {user}));
 }
@@ -28,38 +27,21 @@ function userUpdate(req, res) {
     .findById(req.params.id)
     .exec()
     .then(loggedinuser => {
-      console.log('I AM HERE');
       loggedinuser = Object.assign(loggedinuser, req.body);
       return loggedinuser.save();
     })
     .then(user => res.redirect(`/users/${user._id}`));
-  // add a flash saying it has been update
 }
 //---------USER DELETE----------------------------------------------------------
 function userDelete(req, res) {
   User
-    .findById(req.params.id)// find all users for now if you can set it up
+    .findById(req.params.id)
     .exec()
     .then((whatyouput) => {
       whatyouput.remove();
       return req.session.regenerate(() => res.redirect('/'));
     });
 }
-//----------USER FAV------------------------------------------------------------
-// function userFav(req, res) {
-//   User
-//     .findById(req.params.id)
-//     .exec()
-//     .then(user => {
-//       Tvshow
-//         .find({user: user.id })
-//         .exec()
-//         .then(shows => {
-//           res.render('/users/show', { user, shows });// would this work putting user and sows together
-//         });
-//     });
-// }
-//------------------------------------------------------------------------------
 module.exports = {
   show: userShow,
   edit: userEdit,
