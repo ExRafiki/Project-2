@@ -2,9 +2,9 @@
   <div class="row">
       <div class="col s12">
         <ul class="tabs">
-          <li class="tab col s3"><a class="active" href="#test1">All TV Shows</a></li>
+          <li class="tab col s6"><a class="active" href="#test1">All TV Shows</a></li>
           <% if(locals.isLoggedIn) {%>
-          <li class="tab col s3"><a href="#test2">My Tv Shows</a></li>
+          <li class="tab col s6"><a href="#test2">My Tv Shows</a></li>
             <% } %>
         </ul>
       </div>
@@ -29,7 +29,7 @@
               </div>
             </div>
               <div class="card-image">
-              <img src="<%= tvshow.image %>"style="width:300px;height:400px;">
+              <img src="<%= tvshow.image %>"style="width:350px;height:400px;">
               </div>
               <div class="card-reveal amber darken-6 white-text">
                 <p class="card-title white-text text-darken-4"><%= tvshow.name %><i class="material-icons right">X</i></p>

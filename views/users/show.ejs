@@ -1,12 +1,13 @@
 <div class="white-text">
 <%# //-----------------------LOGGED IN USER---------------------------------- %>
 <h2 id="Logo">Your Profile</h2>
-
+<hr>
 <h3>Username</h3>
 <h5><%= user.username %></h5>
 
 <h3>Email</h3>
 <h5><%= user.email %></h5>
+<hr>
 <%# //-----------------------USER SHOWS------------------------------------- %>
 <h4>Your Contributions to Just Shows:</h4>
 <% shows.forEach(tvshow => { %>
@@ -28,7 +29,7 @@
         </div>
       </div>
       <div class="card-image">
-        <img class="activator" src="<%= tvshow.image %>"style="width:300px;height:400px;">
+        <img class="activator" src="<%= tvshow.image %>"style="width:250px;height:400px;">
       </div>
       <div class="card-reveal amber darken-6 white-text">
         <p class="card-title white-text text-darken-4"><%= tvshow.name %><i class="material-icons right">X</i></p>

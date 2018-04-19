@@ -11,6 +11,7 @@
 <% } %>
 <% } %>
 <%# //-----------------------TV TITLE---------------------------------------- %>
+<div class="white-text">
 <div class="col s12 m6 l10 tile">
     <h2 class="header"><%= tvshow.name %></h2>
     <div class="card horizontal">
@@ -19,6 +20,7 @@
       </div>
       <div class="card-stacked">
         <div class="card-content" id="content1">
+
 <%# //----------SHOW Reviews------------------------------------------------- %>
           <% tvshow.reviews.forEach(review => { %>
               <div class="col s16 m16">
@@ -63,6 +65,5 @@
     <button class="green btn">Post</button>
   </div>
 </form>
-</div>
 </div>
 </div>
