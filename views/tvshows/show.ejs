@@ -15,8 +15,8 @@
 <div class="col s12 m6 l10 tile">
     <h2 class="header"><%= tvshow.name %></h2>
     <div class="card horizontal">
-      <div class="card-image">
-        <img src="<%= tvshow.image %>"style="width:300px;height:400px;">
+      <div class="card-image test">
+        <img  src="<%= tvshow.image %>"style="width:300px;height:400px;">
       </div>
       <div class="card-stacked">
         <div class="card-content" id="content1">
@@ -28,8 +28,8 @@
                 <div class="card-image">
                 </div>
                   <div class="card-content">
-                    <p>
-                      <%= review.content %> Posted by : <% if(review.user){%><%= review.user.username %>
+                    <p class="black-text">
+                      <%= review.content %> | Posted by : <% if(review.user){%><%= review.user.username %>
                       <% } %>
                     </p>
                 </div>

@@ -13,13 +13,13 @@ main{
   background-size: cover;
 }
 nav {
-  height: 80px;
+  height: 70px;
 }
 ul a {
-  height: 80px;
+  height: 70px;
 }
 li {
-  height:  80px;
+  height:  70px;
   font-size: 30px;
 }
 .card-stacked {
@@ -43,15 +43,16 @@ hr {
   border-radius: 15px;
 }
 .card .card-image img {
-  border-radius: 0 15px 15px 0 !important;
+  border-radius: 15px 15px 15px 15px !important;
   border-left:2px solid white;
+  margin-right: 2px;
 }
 span {
   padding-top: 140px;
 }
 .input-field>label {
   color: white;
-  
+
 }
 .card-panel {
   border-radius: 20px;
@@ -68,8 +69,15 @@ body {
    flex: 1 0 auto;
  }
 footer  {
-  background-color: orange;
+  background-color: black;
 }
 .tabs {
   border-radius: 15px;
+}
+.ptwo {
+  font-size: 20px;
+  font-family: 'Thesans';
+}
+.github {
+  padding-left: 30px;
 }
