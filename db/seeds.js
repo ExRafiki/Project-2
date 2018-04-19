@@ -47,6 +47,33 @@ User
       image: 'https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/e6/e68879a4839773d105f0689875dace83_500x735.jpg',
       user: users[1]._id
     },{
+      name: 'Big Bang Theory',
+      genre: 'Comedy',
+      year: new Date(2015,12,5),
+      popularity: 'High',
+      season: 20,
+      platform: 'HBO',
+      image: 'https://media-cache.cinematerial.com/p/500x/ovn9sdn4/the-big-bang-theory-movie-poster.jpg',
+      user: users[1]._id
+    },{
+      name: 'Dope',
+      genre: 'Documentary',
+      year: new Date(2015,12,5),
+      popularity: 'Low',
+      season: 1,
+      platform: 'Netflix',
+      image: 'https://occ-0-999-1001.1.nflxso.net/art/74a81/984d5dc3c1e9ff3eabb27de9aa4e9d8c4f174a81.jpg',
+      user: users[0]._id
+    },{
+      name: 'Suits',
+      genre: 'Drama',
+      year: new Date(2015,12,5),
+      popularity: 'High',
+      season: 8,
+      platform: 'HBO',
+      image: 'https://images-na.ssl-images-amazon.com/images/I/519gIjaH-KL.jpg',
+      user: users[1]._id
+    },{
       name: 'Breaking Bad',
       genre: 'Action',
       year: new Date(2015,12,5),
