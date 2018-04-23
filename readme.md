@@ -4,11 +4,13 @@
 
 ###Goal:
 
-
+The goal was to make a ''full stack'' website that can use data as well as associate
+to certain users.The interest in making a TV shows theme website is based on
+my passion for all kinds of tv shows.
 
 ###Languages used:
 
-*
+* Javascript
 *
 *
 
@@ -19,6 +21,9 @@
 
 ##Website - JustTV
 
+This website was made to store , catalog as well as comment on your favorite shows.
+It comes with authentication system as well as secure route, a full seeded set
+of data all.
 
 ###Visit website
 
