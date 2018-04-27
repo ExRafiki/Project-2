@@ -5,6 +5,9 @@
   "main": "server.js",
   "author": "ExRafiki",
   "license": "MIT",
+  "scripts": {
+    "start": "node server"
+  },
   "dependencies": {
     "bcrypt": "^2.0.0",
     "bluebird": "^3.5.1",
