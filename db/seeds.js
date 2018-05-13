@@ -7,6 +7,7 @@ mongoose.connect(databaseURI);
 const Tvshow          = require('../models/show');
 const User            = require('../models/user');
 //------------Drop previous seeds-----------------------------------------------
+//future add drop entire to avoid error on start.
 Tvshow.collection.drop();
 User.collection.drop();
 
