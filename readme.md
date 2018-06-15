@@ -27,7 +27,7 @@ This website was made to store , catalog as well as comment on your favorite sho
 
 ###Visit website
 
-link here
+https://justtv.herokuapp.com/
 
 ###ScreenShot
 
@@ -44,12 +44,9 @@ Making sure that only relevant information was displayed once and not through th
 
 ###Development
 
-* 1 -Using other battleship game structures i set up a general javascript structure that
-game a certain logic to the concept.
-* 2 -Working slowing on the game logic i set up ship generation then added the horizontal/
-vertical.
-* 3 -Spend 2 days figuring the array positioning as well as making it "true" RNG so
-no one pattern is the same
+* 1 - Visualizing how the data had to be formatted to be properly displayed on the page and provide with the user with the relevant data.
+* 2 - Working step by step from back end to front end not forget to keep my naming convention schematically correct.
+* 3 - Some time was spent on the user data as it was the hardest to display on the page , password had to be avoided because of the hashing of the password.
 
 ###Lessons learned:
 
